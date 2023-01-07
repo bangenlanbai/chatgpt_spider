@@ -41,12 +41,13 @@ class TaskQueue:
 
 
 class CrawlerTask:
-    def __init__(self, url, parser, store, middleware=None, proxy_pool=None):
+    def __init__(self, url, parser, store, middleware=None, proxy_pool=None, task_queue=None):
         self.url = url
         self.parser = parser
         self.store = store
         self.middleware = middleware
         self.proxy_pool = proxy_pool
+        self.task_queue = task_queue
         self.stopped = False
 
     def start(self):
